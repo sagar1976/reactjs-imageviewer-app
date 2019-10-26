@@ -8,27 +8,32 @@ import likeIcon from '../../assets/like.svg';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
+import { spacing } from '@material-ui/system';
+import Box from '@material-ui/core/Box';
 // import Moment from 'react-moment';
 // import 'moment-timezone';
 // import { makeStyles } from '@material-ui/core/styles';
-// import GridList from '@material-ui/core/GridList';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 import './Home.css';
 
 import imagesData from '../../common/ImageData';
 import userData from '../../common/UserData';
 
-                   
+// <GridList cols={2}>
+
+// </GridList>               
 class HomePage extends Component{
     render(){
         return(
             <div>
                 <Header><h3>Added more items</h3></Header>
-                
+                <GridList cols={2}>
                     {
                         imagesData.data.map((data)=>(
-
-                            
-                            <Card key={data.id}>
+                            <GridListTile key={data.id}>
+                            <Box mb={2}>
+                            <Card>
                                 <CardHeader
                                     avatar={<Avatar alt="Upgrad Icon" src={userData.data.profile_picture}/>}
                                     title={userData.data.username}
@@ -36,15 +41,15 @@ class HomePage extends Component{
                                 />
                                 
                                 <CardContent>
-                                    <img src={data.images.standard_resolution.url} alt="images from db"/>
-                                    <hr></hr>
+                                    <img src={data.images.standard_resolution.url} height="50%" width="50%" alt="images from db"/>
+                                    <hr align="left" width="50%"></hr>
                                     <Typography variant="body2">
                                         {data.caption.text.split("\n")[0]} 
                                     </Typography>
                                     <Typography>
                                         {data.caption.text.split("\n")[1]}
                                     </Typography>
-                                    <img src={likeIcon} alt="Like Icon"></img>
+                                    <img src={likeIcon} alt="Like Icon" ></img>
                                     <span>{data.likes.count} likes</span>
                                     <br></br>
                                     <Input id="comment" type="text" placeholder="Add a comment"></Input>
@@ -53,10 +58,11 @@ class HomePage extends Component{
                                     </Button>
                                 </CardContent>
                             </Card>
-  
+                            </Box>
+                            </GridListTile>
                         ))
                     }
-            
+                    </GridList>
             </div>
         )
     }
