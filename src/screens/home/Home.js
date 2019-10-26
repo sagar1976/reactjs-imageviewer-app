@@ -4,48 +4,36 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Header from '../../common/header/Header';
-import imagesData from '../../common/ImageData';
 import likeIcon from '../../assets/like.svg';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-
-import GridList from '@material-ui/core/GridList';
+// import Moment from 'react-moment';
+// import 'moment-timezone';
+// import { makeStyles } from '@material-ui/core/styles';
+// import GridList from '@material-ui/core/GridList';
 import './Home.css';
 
+import imagesData from '../../common/ImageData';
+import userData from '../../common/UserData';
 
-// console.log(imagesData.data);
-// imagesData.data.map((data)=>{
-//     console.log(data.likes.count)
-// })
-
+                   
 class HomePage extends Component{
     render(){
         return(
             <div>
                 <Header><h3>Added more items</h3></Header>
-                <span>List of images</span>
-
                 
                     {
                         imagesData.data.map((data)=>(
 
                             
                             <Card key={data.id}>
-                                <CardHeader>   
-                                    avatar={
-                                        <Avatar aria-label="recipe">
-                                            R
-                                        </Avatar>
-                                        }                             >
-                                        action={
-                                            <IconButton aria-label="settings">
-                                              <MoreVertIcon />
-                                            </IconButton>
-                                        }
-                                </CardHeader>
+                                <CardHeader
+                                    avatar={<Avatar alt="Upgrad Icon" src={userData.data.profile_picture}/>}
+                                    title={userData.data.username}
+                                    subheader={new Date(data.created_time*1000).toLocaleDateString("en-US")+" "+new Date(data.created_time*1000).toLocaleTimeString("en-US")}
+                                />
                                 
                                 <CardContent>
                                     <img src={data.images.standard_resolution.url} alt="images from db"/>
