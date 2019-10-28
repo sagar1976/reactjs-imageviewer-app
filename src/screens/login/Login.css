@@ -10,6 +10,6 @@
    color: red;
 }
 
-.dispBlockAuthenticate{
+.dispBlockAuthenticate{/* added styling for incorrect username, password to display the message */
     display: block;
 }

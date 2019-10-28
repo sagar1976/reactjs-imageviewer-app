@@ -4,7 +4,7 @@
     padding: 8px 32px 8px 16px;
 }
 
-.app-logo {
+.app-logo {/*added style for logo for vertical center and font size */
     font-size: 18px;
     color: #fff;
     padding-top: 4px;
