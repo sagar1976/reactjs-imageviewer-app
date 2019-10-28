@@ -32,7 +32,7 @@ class Login extends Component{
 
         constructor(){
         super();
-        this.state = {
+        this.state = {//setting intial state for username and password to be rendered on card
             modalIsOpen : true,
             value : 0,
             usernameRequired: "dispNone",
@@ -46,11 +46,11 @@ class Login extends Component{
 
     loginClickHandler = () => {
 
-        const username = this.state.username;
+        const username = this.state.username;// setting variable for username, password and access-token
         const password = this.state.password;
         const accessToken = '8661035776.d0fcd39.39f63ab2f88d4f9c92b0862729ee2784';
 
-        if(username === ""){
+        if(username === ""){//Logic to display validation messages when input is empty
             this.setState({usernameRequired: "dispBlock"});
             this.setState({usernameAuth: "dispNone"});
         } else {
@@ -64,7 +64,7 @@ class Login extends Component{
             this.setState({passwordRequired: "dispNone"});
         }
 
-        if (username !== "imageusername" && username !== "") {
+        if (username !== "imageusername" && username !== "") {//Logic to display validation messages when input is incorrect
             this.setState({usernameAuth: "dispBlockAuthenticate"});
         }
 
@@ -72,7 +72,7 @@ class Login extends Component{
             this.setState({passwordAuth: "dispBlockAuthenticate"});
         }
 
-        if (username !== "" && password !== "") {
+        if (username !== "" && password !== "") {//Logic to check if input is not empty and whether correct credentials are provided
             username === "imageusername" ?  this.setState({usernameAuth: "dispNone"}) : this.setState({usernameAuth: "dispBlockAuthenticate"});
             password === "imagepassword" ? this.setState({passwordAuth: "dispNone"}) : this.setState({passwordAuth: "dispBlockAuthenticate"});
         if(username === "imageusername" && password === "imagepassword"){
@@ -83,7 +83,7 @@ class Login extends Component{
         }
     }
 
-    inputUsernameChangeHandler =(e) =>{
+    inputUsernameChangeHandler =(e) =>{//function to handle state change in the username field
         this.setState({username: e.target.value});
     }
 
@@ -104,10 +104,10 @@ class Login extends Component{
                     <FormControl required style={{width: '100%'}}>
                     <InputLabel htmlFor="userName">Username</InputLabel>
                             <Input id="username" type="text" username={this.state.username} onChange={this.inputUsernameChangeHandler}/>
-                            <FormHelperText className={this.state.usernameRequired}>
+                            <FormHelperText className={this.state.usernameRequired}>{/* form helper text for empty validation */}
                                 <span className="red">required</span>
                             </FormHelperText>
-                            <FormHelperText className={this.state.usernameAuth}>
+                            <FormHelperText className={this.state.usernameAuth}>{/* form helper text for incorrect validation */}
                                 <span className="red">Incorrect username and/or password</span>
                             </FormHelperText>
                             </FormControl><br/><br/>
@@ -121,7 +121,7 @@ class Login extends Component{
                                 <span className="red">Incorrect username and/or password</span>
                             </FormHelperText>
                         </FormControl><br/><br/>
-                        <Button variant="contained" color="primary" onClick={this.loginClickHandler}>LOGIN</Button>
+                        <Button variant="contained" color="primary" onClick={this.loginClickHandler}>LOGIN</Button>{/* Login button onclick handler execution */}
                         </CardContent>
                 </Card>
                 </div>
