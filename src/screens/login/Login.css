@@ -1,0 +1,15 @@
+.dispNone{
+    display: none;
+}
+
+.dispBlock{
+    display: block;
+}
+
+.red{
+   color: red;
+}
+
+.dispBlockAuthenticate{
+    display: block;
+}
