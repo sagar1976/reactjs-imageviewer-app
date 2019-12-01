@@ -1,15 +1,15 @@
-.dispNone{
-    display: none;
+.dispNone {
+    display:none;
 }
 
-.dispBlock{
+.dispBlock {
     display: block;
 }
 
-.red{
-   color: red;
+.red {
+    color: red;
 }
-
-.dispBlockAuthenticate{/* added styling for incorrect username, password to display the message */
-    display: block;
+.main-container{
+  display: flex;
+  flex-direction: column;
 }
